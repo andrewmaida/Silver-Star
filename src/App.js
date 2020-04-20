@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Component } from "react";
+import MapGL, { NavigationControl } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const navStyle = {
+  position: "absolute",
+  top: 36,
+  left: 0,
+  padding: "10px"
+};
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      viewport: {
+        latitude: 37.8,
+        longitude: -122.4,
+        zoom: 2,
+        bearing: 0,
+        pitch: 0,
+      }
+    };
+  }
+
+  render() {
+    return (
+      <MapGL
+        {...this.state.viewport}
+        width="100vw"
+        height="100vh"
+        mapStyle="mapbox://styles/agmaida1/ck98rcpom05ee1ilbwvkfuexv"
+        onViewportChange={viewport => this.setState({ viewport })}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      >
+        <div style={navStyle}>
+          <NavigationControl />
+        </div>
+      </MapGL>
+    );
+  }
 }
 
 export default App;
