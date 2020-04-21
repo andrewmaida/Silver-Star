@@ -26,18 +26,19 @@ class App extends Component {
 
   render() {
     return (
-      <MapGL
-        {...this.state.viewport}
-        width="100vw"
-        height="100vh"
-        mapStyle="mapbox://styles/agmaida1/ck98rcpom05ee1ilbwvkfuexv"
-        onViewportChange={viewport => this.setState({ viewport })}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      >
-        <div style={navStyle}>
-          <NavigationControl />
-        </div>
-      </MapGL>
+        test
+    //   <MapGL
+    //     {...this.state.viewport}
+    //     width="100vw"
+    //     height="100vh"
+    //     mapStyle="mapbox://styles/agmaida1/ck98rcpom05ee1ilbwvkfuexv"
+    //     onViewportChange={viewport => this.setState({ viewport })}
+    //     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+    //   >
+    //     <div style={navStyle}>
+    //       <NavigationControl />
+    //     </div>
+    //   </MapGL>
     );
   }
 }
